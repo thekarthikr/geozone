@@ -111,28 +111,38 @@ export interface NavigationDocumentDataExploreItem {
 }
 
 /**
- * Item in *Footer → Service*
+ * Item in *Footer → Services*
  */
-export interface NavigationDocumentDataServiceItem {
+export interface NavigationDocumentDataServicesItem {
   /**
-   * Name field in *Footer → Service*
+   * Name field in *Footer → Services*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: navigation.service[].name
+   * - **API ID Path**: navigation.services[].name
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   name: prismic.KeyTextField;
 
   /**
-   * Link field in *Footer → Service*
+   * Link field in *Footer → Services*
    *
    * - **Field Type**: Link
    * - **Placeholder**: *None*
-   * - **API ID Path**: navigation.service[].link
+   * - **API ID Path**: navigation.services[].link
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
   link: prismic.LinkField;
+
+  /**
+   * Summary field in *Footer → Services*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: navigation.services[].summary
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  summary: prismic.KeyTextField;
 }
 
 /**
@@ -198,15 +208,15 @@ interface NavigationDocumentData {
   explore: prismic.GroupField<Simplify<NavigationDocumentDataExploreItem>>;
 
   /**
-   * Service field in *Footer*
+   * Services field in *Footer*
    *
    * - **Field Type**: Group
    * - **Placeholder**: *None*
-   * - **API ID Path**: navigation.service[]
+   * - **API ID Path**: navigation.services[]
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#group
    */
-  service: prismic.GroupField<Simplify<NavigationDocumentDataServiceItem>>;
+  services: prismic.GroupField<Simplify<NavigationDocumentDataServicesItem>>;
 
   /**
    * Contact field in *Footer*
@@ -369,11 +379,71 @@ export type SettingsDocument<Lang extends string = string> =
     Lang
   >;
 
+/**
+ * Item in *Social Media → Social Media*
+ */
+export interface SocialMediaDocumentDataSocialMediaItem {
+  /**
+   * Name field in *Social Media → Social Media*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: social_media.social_media[].name
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  name: prismic.KeyTextField;
+
+  /**
+   * Link field in *Social Media → Social Media*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: social_media.social_media[].link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link: prismic.LinkField;
+}
+
+/**
+ * Content for Social Media documents
+ */
+interface SocialMediaDocumentData {
+  /**
+   * Social Media field in *Social Media*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: social_media.social_media[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  social_media: prismic.GroupField<
+    Simplify<SocialMediaDocumentDataSocialMediaItem>
+  >;
+}
+
+/**
+ * Social Media document from Prismic
+ *
+ * - **API ID**: `social_media`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type SocialMediaDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<SocialMediaDocumentData>,
+    "social_media",
+    Lang
+  >;
+
 export type AllDocumentTypes =
   | HomepageDocument
   | NavigationDocument
   | PageDocument
-  | SettingsDocument;
+  | SettingsDocument
+  | SocialMediaDocument;
 
 /**
  * Primary content in *AboutHero → Primary*
@@ -528,6 +598,16 @@ export interface CallToActionSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   button_text: prismic.KeyTextField;
+
+  /**
+   * Button Link field in *CallToAction → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: call_to_action.primary.button_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  button_link: prismic.LinkField;
 }
 
 /**
@@ -576,10 +656,20 @@ export interface CallToActionSliceCtaWithGradientPrimary {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   button_text: prismic.KeyTextField;
+
+  /**
+   * Button Link field in *CallToAction → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: call_to_action.primary.button_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  button_link: prismic.LinkField;
 }
 
 /**
- * CtaWithGradient variation for CallToAction Slice
+ * About - CTA variation for CallToAction Slice
  *
  * - **API ID**: `ctaWithGradient`
  * - **Description**: Default
@@ -592,11 +682,85 @@ export type CallToActionSliceCtaWithGradient = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *CallToAction → Primary*
+ */
+export interface CallToActionSliceServiceCtaPrimary {
+  /**
+   * Title field in *CallToAction → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: call_to_action.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Description field in *CallToAction → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: call_to_action.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  description: prismic.KeyTextField;
+
+  /**
+   * Button Text field in *CallToAction → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: call_to_action.primary.button_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  button_text: prismic.KeyTextField;
+
+  /**
+   * Button Link field in *CallToAction → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: call_to_action.primary.button_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  button_link: prismic.LinkField;
+}
+
+/**
+ * Primary content in *CallToAction → Items*
+ */
+export interface CallToActionSliceServiceCtaItem {
+  /**
+   * Key Feature field in *CallToAction → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: call_to_action.items[].key_feature
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  key_feature: prismic.KeyTextField;
+}
+
+/**
+ * Service - CTA variation for CallToAction Slice
+ *
+ * - **API ID**: `serviceCta`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CallToActionSliceServiceCta = prismic.SharedSliceVariation<
+  "serviceCta",
+  Simplify<CallToActionSliceServiceCtaPrimary>,
+  Simplify<CallToActionSliceServiceCtaItem>
+>;
+
+/**
  * Slice variation for *CallToAction*
  */
 type CallToActionSliceVariation =
   | CallToActionSliceDefault
-  | CallToActionSliceCtaWithGradient;
+  | CallToActionSliceCtaWithGradient
+  | CallToActionSliceServiceCta;
 
 /**
  * CallToAction Shared Slice
@@ -1679,6 +1843,16 @@ export interface TechnologiesSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   tag: prismic.KeyTextField;
+
+  /**
+   * Image field in *Technologies → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: technologies.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
 }
 
 /**
@@ -1752,13 +1926,16 @@ declare module "@prismicio/client" {
       NavigationDocument,
       NavigationDocumentData,
       NavigationDocumentDataExploreItem,
-      NavigationDocumentDataServiceItem,
+      NavigationDocumentDataServicesItem,
       NavigationDocumentDataContactItem,
       PageDocument,
       PageDocumentData,
       PageDocumentDataSlicesSlice,
       SettingsDocument,
       SettingsDocumentData,
+      SocialMediaDocument,
+      SocialMediaDocumentData,
+      SocialMediaDocumentDataSocialMediaItem,
       AllDocumentTypes,
       AboutHeroSlice,
       AboutHeroSliceDefaultPrimary,
@@ -1768,9 +1945,12 @@ declare module "@prismicio/client" {
       CallToActionSlice,
       CallToActionSliceDefaultPrimary,
       CallToActionSliceCtaWithGradientPrimary,
+      CallToActionSliceServiceCtaPrimary,
+      CallToActionSliceServiceCtaItem,
       CallToActionSliceVariation,
       CallToActionSliceDefault,
       CallToActionSliceCtaWithGradient,
+      CallToActionSliceServiceCta,
       ContactSlice,
       ContactSliceDefaultPrimary,
       ContactSliceDefaultItem,
