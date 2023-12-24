@@ -1,20 +1,15 @@
 import { Content } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
-import Link from "next/link";
 import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 import Bounded from "@/components/shared/bounded";
 import { Button } from "@/components/ui/button";
-import { Slides } from "@/components/shared/slides";
-import ThumbnailSlides from "@/components/shared/thumbnail-slides";
+import { Slides } from "@/components/shared/Service/slides";
+import ThumbnailSlides from "@/components/shared/Service/thumbnail-slides";
 
-/**
- * Props for `Hero`.
- */
+
 export type HeroProps = SliceComponentProps<Content.HeroSlice>;
 
-/**
- * Component for "Hero" Slices.
- */
+
 const Hero = ({ slice }: HeroProps): JSX.Element => {
   return (
 

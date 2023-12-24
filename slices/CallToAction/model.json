@@ -32,13 +32,21 @@
             "label": "Button Text",
             "placeholder": ""
           }
+        },
+        "button_link": {
+          "type": "Link",
+          "config": {
+            "label": "Button Link",
+            "placeholder": "",
+            "select": null
+          }
         }
       },
       "items": {}
     },
     {
       "id": "ctaWithGradient",
-      "name": "CtaWithGradient",
+      "name": "About - CTA",
       "docURL": "...",
       "version": "initial",
       "description": "Default",
@@ -64,9 +72,65 @@
             "label": "Button Text",
             "placeholder": ""
           }
+        },
+        "button_link": {
+          "type": "Link",
+          "config": {
+            "label": "Button Link",
+            "placeholder": "",
+            "select": null
+          }
         }
       },
       "items": {}
+    },
+    {
+      "id": "serviceCta",
+      "name": "Service - CTA",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "Title",
+            "placeholder": ""
+          }
+        },
+        "description": {
+          "type": "Text",
+          "config": {
+            "label": "Description",
+            "placeholder": ""
+          }
+        },
+        "button_text": {
+          "type": "Text",
+          "config": {
+            "label": "Button Text",
+            "placeholder": ""
+          }
+        },
+        "button_link": {
+          "type": "Link",
+          "config": {
+            "label": "Button Link",
+            "placeholder": "",
+            "select": null
+          }
+        }
+      },
+      "items": {
+        "key_feature": {
+          "type": "Text",
+          "config": {
+            "label": "Key Feature",
+            "placeholder": ""
+          }
+        }
+      }
     }
   ]
 }
