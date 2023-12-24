@@ -59,7 +59,7 @@ export function Navbar() {
       <NavigationMenu>
         <NavigationMenuList className="hidden md:flex">
           <NavigationMenuItem>
-            <Link href="/docs">
+            <Link href="/">
               <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                 Home
               </NavigationMenuLink>
