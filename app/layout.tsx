@@ -3,8 +3,8 @@ import "./globals.css";
 import localFont from "next/font/local";
 import { ThemeProvider } from "@/components/ui/theme-provider";
 import { Toaster } from "sonner";
-import { Navbar } from "./components/Navbar";
-import Footer from "./components/Footer";
+import { Navbar } from "../components/shared/Nav/navbar";
+import Footer from "../components/shared/footer";
 import  {createClient , repositoryName} from '@/prismicio'
 import { PrismicPreview } from "@prismicio/next";
 
@@ -23,24 +23,21 @@ const body = localFont({
 
 
  
-type Props = {
-  params: { id: string }
-  searchParams: { [key: string]: string | string[] | undefined }
-}
+
  
-// export async function generateMetadata(): Promise<Metadata> {
-//   const client = createClient();
-//   const setting = await client.getSingle('setting')
+export async function generateMetadata(): Promise<Metadata> {
+  const client = createClient();
+  const setting = await client.getSingle("settings")
 
 
-//   return {
-//     title: setting.data.meta_title,
-//     description:setting.data.meta_description,
-//     // openGraph: {
-//     //   images: [setting.data.og_image.url || ""],
-//     // },
-//   }
-// }
+  return {
+    title: setting.data.meta_title,
+    description:setting.data.meta_description,
+    openGraph: {
+      images: [setting.data.og_image.url || ""],
+    },
+  }
+}
  
 
 
