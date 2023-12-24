@@ -11,17 +11,13 @@ import { ServicesSliceDefaultItem } from "@/prismicio-types";
 import { PrismicNextLink } from "@prismicio/next";
 
 
-/**
- * Props for `Services`.
- */
+
 export type ServicesProps = SliceComponentProps<Content.ServicesSlice>;
 
-/**
- * Component for "Services" Slices.
- */
+
 const ServicesLink = ({ slice }: ServicesProps): JSX.Element => {
 
-    console.log(slice.items[0].title)
+
   return (
     <section className=" p-4 md:p-8 mt-5">
       <div className="mx-auto max-w-6xl">
