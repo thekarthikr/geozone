@@ -43,10 +43,10 @@
           }
         }
       },
-      "service": {
+      "services": {
         "type": "Group",
         "config": {
-          "label": "Service",
+          "label": "Services",
           "fields": {
             "name": {
               "type": "Text",
@@ -61,6 +61,13 @@
                 "label": "Link",
                 "placeholder": "",
                 "select": null
+              }
+            },
+            "summary": {
+              "type": "Text",
+              "config": {
+                "label": "Summary",
+                "placeholder": ""
               }
             }
           }
