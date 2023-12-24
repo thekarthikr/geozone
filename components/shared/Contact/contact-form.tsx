@@ -9,9 +9,9 @@ import { ContactFormSchema } from "@/lib/scheme";
 import { sendEmail } from "@/app/_actions";
 import { toast } from "sonner";
 import { Loader2 } from "lucide-react"
-import { Button } from "../ui/button";
-import {Label} from '../ui/label'
-import { Input } from "../ui/input";
+import { Button } from "../../ui/button";
+import {Label} from '../../ui/label'
+import { Input } from "../../ui/input";
 
 
 export type ContactFormInputs = z.infer<typeof ContactFormSchema>;

@@ -1,43 +1,55 @@
-import { Link, NavigationMenu, NavigationMenuItem, NavigationMenuLink, NavigationMenuList } from '@radix-ui/react-navigation-menu'
+import {  NavigationMenu, NavigationMenuItem, NavigationMenuLink, NavigationMenuList } from '@radix-ui/react-navigation-menu'
 import React from 'react'
 import NavServices from './nav-services'
-import { Button } from '../ui/button'
-
+import { Button } from '../../ui/button'
+import { SheetClose } from '../../ui/sheet'
+import Link from 'next/link'
 const NavItems = () => {
   return (
     <NavigationMenu>
     <NavigationMenuList className="space-y-3">
       <NavigationMenuItem>
-        <Link href="/">
+      
+       <Link href="/">
+       <SheetClose>
           <NavigationMenuLink >
             Home
           </NavigationMenuLink>
+          </SheetClose>
         </Link>
+    
      
       </NavigationMenuItem>
       <NavigationMenuItem>
         <Link href="/#features   ">
-          <NavigationMenuLink >
+        <SheetClose>
+        <NavigationMenuLink >
             Features
           </NavigationMenuLink>
+        </SheetClose>
         </Link>
       </NavigationMenuItem>
 
-      <NavServices/>
+      <NavServices />
 
       <NavigationMenuItem>
         <Link href="/about"  >
-          <NavigationMenuLink >
+         <SheetClose>
+         <NavigationMenuLink >
             About
           </NavigationMenuLink>
+         </SheetClose>
+         
         </Link>
       </NavigationMenuItem>
 
       <NavigationMenuItem>
         <Link href="/contact"  >
-          <NavigationMenuLink >
+        <SheetClose>
+        <NavigationMenuLink >
           <Button variant='default'> Contact</Button>
           </NavigationMenuLink>
+        </SheetClose>
         </Link>
       </NavigationMenuItem>
     </NavigationMenuList>
