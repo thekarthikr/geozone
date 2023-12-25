@@ -10,6 +10,7 @@ import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 import { SliceComponentProps } from '@prismicio/react'
 import { Content } from '@prismicio/client'
+import { PrismicNextImage, PrismicNextLink } from '@prismicio/next'
 
 export type HeroProps = SliceComponentProps<Content.HeroSlice>;
 
@@ -46,10 +47,9 @@ export const Slides = ({ slice }: HeroProps): JSX.Element => {
           {   slice.items.map(({images},index) => (
             <SwiperSlide key={index}>
               <div className='flex h-full w-full items-center justify-center'>
-                <Image
-                  src={images.url || ""}
-                  alt={images.alt || ''}
-                  width={400}
+                <PrismicNextImage
+ field={images}
+width={400}
                   height={400}
                   className='block h-full w-full object-cover'
                 />

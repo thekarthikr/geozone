@@ -11,9 +11,7 @@ const HomeServices = ({ slice }: ServicesProps): JSX.Element => {
     <div className="max-w-screen-xl mx-auto px-4 text-gray-600 md:px-8">
     <div className="grid grid-cols-1  md:grid-cols-2">
       <div className="max-w-xl space-y-3">
-        {/* <Chip color="success" variant="flat">
-          What we do
-        </Chip> */}
+       
         <h2 className="text-foreground text-5xl  md:text-7xl font-semibold ">
           <div>
             What{" "}
@@ -23,7 +21,7 @@ const HomeServices = ({ slice }: ServicesProps): JSX.Element => {
           </div>
           <div>We're Offering</div>
         </h2>
-      </div>
+      </div> 
 
       <p className="text-md md:text-lg mt-10">
      {slice.primary.description}

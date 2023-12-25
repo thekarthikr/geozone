@@ -1,5 +1,7 @@
 import { Content } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
+import Image from "next/image";
+import tick from '@/public/images/tick.svg'
 
 export type CallToActionProps = SliceComponentProps<Content.CallToActionSlice>;
 
@@ -25,9 +27,9 @@ const ServiceCta = ({ slice }: CallToActionProps): JSX.Element => {
              {
                 slice.items.map(({key_feature},idx)=>(
                     <li key={idx} className="ml-2 mr-2 flex flex-row items-center md:mx-4">
-                    <img
-                      src="https://assets.website-files.com/6357722e2a5f19121d37f84d/6358be3a3c2bb8076f2bad62_Vector-6.svg"
-                      alt=""
+                    <Image
+                       src={tick}
+                       alt="Tick "
                       className="mr-2 inline-block h-4 w-4"
                     />
                     <p>{key_feature} </p>

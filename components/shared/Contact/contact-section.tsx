@@ -1,120 +1,65 @@
+import { Content } from "@prismicio/client";
+import { SliceComponentProps } from "@prismicio/react";
+import ContactForm from "./contact-form";
+import Image from "next/image";
+import contactBanner from '@/public/images/contact.svg'
+export type ContactProps = SliceComponentProps<Content.ContactSlice>;
 
 
-const ContactSection = () => {
+const ContactSection = ({ slice }: ContactProps): JSX.Element => {
   return (
-    <section className="relative">
-      {/* Container */}
-      <div className="py-16 md:py-24 lg:py-32">
-        {/* Component */}
-        <div className="mx-auto w-full max-w-3xl px-5 md:px-10">
-          {/* Heading Div */}
-          <h2 className="text-3xl font-semibold md:text-5xl">
-            <span
-              className="bg-contain bg-center bg-no-repeat px-4 text-white"
-              style={{
-                backgroundImage:
-                  "url('https://assets.website-files.com/63904f663019b0d8edf8d57c/6391714b7ac2b51acc1a2548_Rectangle%2017%20(1).svg')",
-              }}
-            >
-              Let's Build
-            </span>{' '}
-            Something Exciting Together
-          </h2>
-          <p className="mx-auto mb-8 mt-4 max-w-[528px] text-[#636262] md:mb-12 lg:mb-16">
-            Lorem ipsum dolor sit amet consectetur adipiscing elit ut aliquam, purus sit amet luctus magna fringilla
-            urna
-          </p>
-          {/* Form */}
-          <form
-            method="get"
-            className="mb-4 rounded-3xl border border-solid border-black bg-white px-4 py-10 [box-shadow:rgb(0,_0,_0)_9px_9px] sm:px-8 sm:py-16 md:px-20"
-          >
-            {/* Name */}
-            <div className="mb-4 grid w-full grid-cols-2 gap-6">
-              <div className="relative">
-                <label className="mb-1 font-semibold">First Name</label>
-                <input
-                  type="text"
-                  className="block h-9 w-full rounded-md border border-solid border-black bg-white p-2 text-sm text-[#333333] focus:border-[#3898ec] focus:outline-0"
-                />
-              </div>
-              <div className="relative">
-                <label className="mb-1 font-medium">Last Name</label>
-                <input
-                  type="text"
-                  className="block h-9 w-full rounded-md border border-solid border-black bg-white p-2 text-sm text-[#333333] focus:border-[#3898ec] focus:outline-0"
-                />
-                <div></div>
-                <div></div>
-              </div>
-            </div>
-            {/* Email */}
-            <div className="relative mb-4">
-              <label htmlFor="field" className="mb-1 font-medium">
-                Email
-              </label>
-              <input
-                type="text"
-                className="block h-9 w-full rounded-md border border-solid border-black bg-white p-2 text-sm text-[#333333] focus:border-[#3898ec] focus:outline-0"
-                name="field"
-              />
-            </div>
-            {/* Message */}
-            <div className="relative mb-5 md:mb-6 lg:mb-8">
-              <label htmlFor="field" className="mb-1 font-medium">
-                Message
-              </label>
-              <textarea
-                placeholder=""
-             
-                name="field"
-                className="min-h-[186px] w-full rounded-md border border-solid border-black bg-white p-2 text-sm text-[#333333] focus:border-[#3898ec] focus:outline-0"
-              ></textarea>
-            </div>
-            <label className="flex pb-4 pl-5 font-medium">
-              <input
-                type="checkbox"
-                name="checkbox-2"
-                className="float-left -ml-[20px] mt-1"
-              />
-              <span className="ml-4 inline-block cursor-pointer text-sm font-normal" >
-                By selecting this, you agree to the
-                <a href="#" className="font-bold text-[#1353fe]">
-                  {' '}
-                  Privacy Policy
-                </a>
-              </span>
-            </label>
-            <input
-              type="submit"
-              value="Submit"
-              className="inline-block w-full cursor-pointer rounded-xl bg-black px-8 py-4 text-center font-semibold text-white no-underline [box-shadow:rgb(19,_83,_254)_6px_6px]"
-            />
-          </form>
+    < div className="lg:flex lg:items-center lg:-mx-10">
+    <div className="lg:w-1/2 lg:mx-10">
+      <h1 className="text-3xl font-semibold  capitalize  lg:text-4xl">
+       {slice.primary.heading}
+      </h1>
+
+      <p className="mt-4 ">
+       {slice.primary.description}
+      </p>
+    
+      <ContactForm />
+    </div>
+
+    <div className="mt-12 lg:flex lg:mt-0 lg:flex-col lg:items-center lg:w-1/2 lg:mx-10">
+   
+      <Image src={contactBanner} alt="contact image for geozone tech"  className="hidden object-cover mx-auto rounded-full lg:block shrink-0 w-96 h-96"  />
+
+      <div className="mt-6 space-y-8 md:mt-8">
+        <p className="flex items-start -mx-2">
+          {/* LOCATION ICON GOES HERE */}
+
+          <span className="mx-2  truncate w-72 ">
+         {slice.primary.location}
+          </span>
+        </p>
+
+        <p className="flex items-start -mx-2">
+        {/* PHONE ICONS GOES HERE */}
+          <span className="mx-2  truncate w-72 ">
+        {slice.primary.phone_number}
+          </span>
+        </p>
+
+        <p className="flex items-start -mx-2">
+        {/* MAIL ICON GOES HERE */}
+
+          <span className="mx-2  truncate w-72 ">
+          {slice.primary.email}
+          </span>
+        </p>
+      </div>
+
+      <div className="mt-6 w-80 md:mt-8">
+        <h3 className="text-gray-600 dark:text-gray-300 ">Follow us</h3>
+
+        <div className="flex mt-4 -mx-1.5 ">
+         
+         {/* SOCIAL ICONS GOES HERE */}
         </div>
       </div>
-      {/* Background Images */}
-      <img
-        src="https://assets.website-files.com/63904f663019b0d8edf8d57c/639976df71dd20857114e6dd_Frame%20427322429.svg"
-        alt=""
-        className="absolute bottom-auto left-0 right-0 top-0 -z-10 inline-block w-full"
-      />
-      <img
-        src="https://assets.website-files.com/63904f663019b0d8edf8d57c/639976df71dd20857114e6dd_Frame%20427322429.svg"
-        alt=""
-        className="absolute bottom-0 left-0 right-0 top-auto -z-30 inline-block w-full"
-      />
-      <img
-        src="https://assets.website-files.com/63904f663019b0d8edf8d57c/639976de093252d906117e82_Ornament%2049.svg"
-        alt=""
-        className="absolute bottom-0 left-[5%] right-auto top-auto -z-30 hidden md:inline-block"
-      />
-      <img
-        src="https://assets.website-files.com/63904f663019b0d8edf8d57c/639976de093252d906117e82_Ornament%2049.svg"
-        alt=""
-        className="absolute bottom-auto left-auto right-[5%] top-0 -z-30 hidden md:inline-block"
-      />
-    </section>
+    </div>
+  </div>
   );
 };
 

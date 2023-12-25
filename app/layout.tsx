@@ -25,19 +25,19 @@ const body = localFont({
  
 
  
-export async function generateMetadata(): Promise<Metadata> {
-  const client = createClient();
-  const setting = await client.getSingle("settings")
+// export async function generateMetadata(): Promise<Metadata> {
+//   const client = createClient();
+//   const setting = await client.getSingle("settings")
 
 
-  return {
-    title: setting.data.meta_title,
-    description:setting.data.meta_description,
-    openGraph: {
-      images: [setting.data.og_image.url || ""],
-    },
-  }
-}
+//   return {
+//     title: setting.data.meta_title,
+//     description:setting.data.meta_description,
+//     openGraph: {
+//       images: [setting.data.og_image.url || ""],
+//     },
+//   }
+// }
  
 
 
