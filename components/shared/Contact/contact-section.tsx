@@ -4,13 +4,31 @@ import ContactForm from "./contact-form";
 import Image from "next/image";
 import contactBanner from '@/public/images/contact.svg'
 export type ContactProps = SliceComponentProps<Content.ContactSlice>;
+import { IoLocationOutline } from "react-icons/io5";
+import { MdEmail } from "react-icons/md";
+import { LuPhone } from "react-icons/lu";
+import {BsTwitterX,BsInstagram,BsFacebook,BsLinkedin} from 'react-icons/bs'
+import { PrismicNextLink } from "@prismicio/next";
+import { createClient } from "@/prismicio";
+import React from "react";
 
 
-const ContactSection = ({ slice }: ContactProps): JSX.Element => {
+const client = createClient()
+const ContactSection = async ({ slice }: ContactProps): Promise<JSX.Element >=> {
+
+ const social = await client.getSingle('social_media')
+
+  const icons = {
+    Facebook : BsFacebook,
+    Instagram : BsInstagram,
+    Twitter : BsTwitterX,
+    Linkedin: BsLinkedin
+  }
+
   return (
-    < div className="lg:flex lg:items-center lg:-mx-10">
-    <div className="lg:w-1/2 lg:mx-10">
-      <h1 className="text-3xl font-semibold  capitalize  lg:text-4xl">
+    < div className="md:flex md:items-center ">
+    <div className="md:w-1/2 md:mx-10">
+      <h1 className="text-3xl font-semibold  capitalize  md:text-4xl">
        {slice.primary.heading}
       </h1>
 
@@ -21,28 +39,28 @@ const ContactSection = ({ slice }: ContactProps): JSX.Element => {
       <ContactForm />
     </div>
 
-    <div className="mt-12 lg:flex lg:mt-0 lg:flex-col lg:items-center lg:w-1/2 lg:mx-10">
+    <div className="mt-12 md:flex md:mt-0 md:flex-col md:items-center md:w-1/2 md:mx-10">
    
-      <Image src={contactBanner} alt="contact image for geozone tech"  className="hidden object-cover mx-auto rounded-full lg:block shrink-0 w-96 h-96"  />
+      <Image src={contactBanner} alt="contact image for geozone tech"  className="hidden object-cover mx-auto rounded-full md:block shrink-0 w-96 h-96"  />
 
       <div className="mt-6 space-y-8 md:mt-8">
-        <p className="flex items-start -mx-2">
-          {/* LOCATION ICON GOES HERE */}
+        <p className="flex items-center -mx-2">
+       <IoLocationOutline />
 
           <span className="mx-2  truncate w-72 ">
          {slice.primary.location}
           </span>
         </p>
 
-        <p className="flex items-start -mx-2">
-        {/* PHONE ICONS GOES HERE */}
+        <p className="flex items-center -mx-2">
+      <LuPhone />
           <span className="mx-2  truncate w-72 ">
         {slice.primary.phone_number}
           </span>
         </p>
 
-        <p className="flex items-start -mx-2">
-        {/* MAIL ICON GOES HERE */}
+        <p className="flex items-center -mx-2">
+        <MdEmail />
 
           <span className="mx-2  truncate w-72 ">
           {slice.primary.email}
@@ -53,9 +71,26 @@ const ContactSection = ({ slice }: ContactProps): JSX.Element => {
       <div className="mt-6 w-80 md:mt-8">
         <h3 className="text-gray-600 dark:text-gray-300 ">Follow us</h3>
 
-        <div className="flex mt-4 -mx-1.5 ">
-         
-         {/* SOCIAL ICONS GOES HERE */}
+        <div className="mt-6 sm:mt-0">
+          <ul className="flex items-center my-2 space-x-4">
+           
+            {social.data.social_media.map(({ name,link },idx) => (
+              <li
+                key={idx}
+                className="w-10 h-10 border border-gray-900 border-opacity-50 rounded-full flex items-center justify-center"
+              >
+                <PrismicNextLink field={link} >
+                {
+  name && icons[name as keyof typeof icons] && (
+    React.createElement(icons[name as keyof typeof icons])
+  )
+}
+
+        </PrismicNextLink>
+               
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </div>

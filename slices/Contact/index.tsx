@@ -18,7 +18,7 @@ const Contact = ({ slice }: ContactProps): JSX.Element => {
   const icons = [BsTwitterX,BsFacebook,BsInstagram,BsWhatsapp
   ];
   return (
-    <Bounded className="min-h-screen"
+    <Bounded className=""
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
     >
