@@ -1,39 +1,54 @@
 
-
-import Link from "next/link";
 import { Button } from "../../ui/button";
+import { SliceComponentProps } from "@prismicio/react";
+import { Content } from "@prismicio/client";
+import { PrismicNextLink } from "@prismicio/next";
 
-type ServiceHero = {
-  heading: string;
-  tag: string;
-  desc: string;
-};
+import { Slides } from "./slides";
 
-const ServiceHero = ({ heading, tag, desc }: ServiceHero) => {
+export type HeroProps = SliceComponentProps<Content.HeroSlice>;
+
+
+const ServiceHero = ({ slice }: HeroProps): JSX.Element => {
   return (
-    <section id="services" className="pt-32">
-      <div className="max-w-screen-xl mx-auto px-4 text-gray-600 md:px-8">
-        <div className="grid grid-cols-1  md:grid-cols-2">
-          <div className="max-w-xl space-y-3">
-            {/* <Chip color="success" variant="flat">
-              {tag}
-            </Chip> */}
-            <h2 className="text-foreground  text-7xl font-semibold ">
-              {heading}
-            </h2>
+
+    <>
+     {
+      slice.variation === 'serviceHero' && (
+        <div className="px-4 py-14 text-center lg:text-left mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-16">
+        <div className="flex flex-col items-center justify-between lg:flex-row">
+          <div className="mb-10 lg:max-w-lg lg:pr-5 lg:mb-0">
+            <div className="max-w-xl mb-6">
+              <div>
+                {/* <p className="inline-block px-3 py-px mb-4 text-xs font-semibold tracking-wider text-teal-900 uppercase rounded-full bg-teal-accent-400">
+                {slice.primary.tag}
+                </p> */}
+              </div>
+              <h2 className="max-w-lg mb-6  text-3xl font-bold tracking-tight sm:text-4xl sm:leading-none">
+               {slice.primary.heading}
+              </h2>
+              <p className="text-base  md:text-lg">
+              {slice.primary.description}
+              </p>
+            </div>
+            <div>
+             <Button variant='destructive' >
+               <PrismicNextLink field={slice.primary.button_link}>
+                {slice.primary.button_one}
+               </PrismicNextLink>
+             </Button>
+            </div>
           </div>
-
-          <div className="text-md space-y-3 md:text-lg mt-10">
-            <p>{desc}</p>
-
-            <Button>
-              {" "}
-              <Link href="/about-us"> Get to know us</Link>{" "}
-            </Button>
+          <div className="relative px-3 w-[100%] lg:w-1/2">
+         <Slides slice={slice} index={0} slices={[]} context={undefined} />
+        
           </div>
         </div>
-      </div>
-    </section>
+        </div>
+      )
+     }
+    </>
+   
   );
 };
 

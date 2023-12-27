@@ -24,7 +24,7 @@ export const ServiceTechnology = ({ slice }: TechnologiesProps): JSX.Element => 
        <div className="relative px-4 py-10 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-20 lg:px-8 lg:py-14">
       
       <div className="absolute inset-0">
-        <div className="absolute inset-y-0 z-0 rounded-md w-full h-full bg-gray-100 dark:bg-gray-900/50 lg:w-3/4" />
+        <div className="absolute inset-y-0 z-0 rounded-md w-full h-full bg-gray-100/50 dark:bg-black/30 lg:w-3/4" />
       </div>
       <div className="relative">
         <div className="grid gap-12 row-gap-8 lg:grid-cols-2">

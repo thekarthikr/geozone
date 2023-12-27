@@ -6,6 +6,7 @@ import { PrismicNextLink } from '@prismicio/next'
 import { NavigationDocumentDataServicesItem, Simplify } from '@/prismicio-types'
 import { GroupField } from '@prismicio/client'
 import { SheetClose } from '../../ui/sheet'
+import { ChevronDown } from 'lucide-react'
 
 
 
@@ -33,7 +34,7 @@ const NavServices =  () => {
   return (
     <Accordion type="single" collapsible className="w-full">
       <AccordionItem value="item-1">
-        <AccordionTrigger>Services</AccordionTrigger>
+        <AccordionTrigger className='flex gap-2 font-semibold'>Services <ChevronDown className='text-sm ' /> </AccordionTrigger>
         <AccordionContent className='flex flex-col '>
         {services?.map((component) => (
                 

@@ -1,44 +1,53 @@
-// import { Button } from "@/components/ui/button";
-// import { Content } from "@prismicio/client";
-// import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
-// import { SliceComponentProps } from "@prismicio/react";
+import { Button } from "@/components/ui/button"
+import { Content } from "@prismicio/client";
+import { PrismicLink, SliceComponentProps } from "@prismicio/react";
+
+export type HeroProps = SliceComponentProps<Content.HeroSlice>;
 
 
-// export type HeroProps = SliceComponentProps<Content.HeroSlice>;
+const Home = ({ slice }: HeroProps): JSX.Element => {
+  return (
+  <>
+   {
+    slice.variation === 'default' && (
+      <section className="relative py-12 magic-pattern  sm:py-28 lg:py-40">
+      {/* <div className="absolute inset-0">
+        <img className="object-cover w-full h-full" src="https://landingfoliocom.imgix.net/store/collection/clarity-blog/images/hero/5/grid-pattern.png" alt=""/>
+      </div> */}
 
+      <div className="relative px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">
+        <div className="max-w-xl mx-auto text-center">
+          <h1 className="text-3xl font-bold  sm:text-4xl lg:text-5xl">
+         {slice.primary.heading}
+          </h1>
+          <p className="max-w-md mx-auto mt-6 text-base font-normal leading-7 ">
+           {slice.primary.description}
+          </p>
 
-// const HomeHero = ({ slice }: HeroProps): JSX.Element => {
-//   return (
-//     <div className="max-w-screen-xl mx-auto text-gray-600 gap-x-12 items-center justify-between overflow-hidden md:flex md:px-8">
-//     <div className="flex-none space-y-5 px-4 sm:max-w-lg md:px-0 lg:max-w-xl">
+      
 
-//       <h1 className="text-4xl text-gray-800 dark:text-gray-200 font-extrabold font-heading md:text-5xl">
-//          {slice.primary.heading}
-//       </h1>
-//       <p>
-//     {slice.primary.description}
-//       </p>
-//       {/* <div className="items-center gap-x-3 space-y-3 sm:flex sm:space-y-0">
-//        <Button>
-//          <PrismicNextLink field={slice.primary.button_one_link}>
-//           {slice.primary.button_one_name}
-//          </PrismicNextLink>
-//        </Button>
-//        <Button variant='outline'>
-//          <PrismicNextLink field={slice.primary.button_two_link}>
-//           {slice.primary.button_two_name}
-//          </PrismicNextLink>
-//        </Button>
-//       </div> */}
-//     </div>
-//     <div className="flex-none mt-14 md:mt-0 md:max-w-xl">
+          <div className="flex items-center justify-center mt-6 space-x-6 sm:space-x-8">
+           <Button >
+           <PrismicLink field={slice.primary.button_one_link}>
+            {slice.primary.button_one_name}
+           </PrismicLink>
+           </Button>
+           <Button variant="outline" >
+           <PrismicLink field={slice.primary.button_two_link}>
+            {slice.primary.button_two_name}
+           </PrismicLink>
+           </Button>
 
-//     <PrismicNextImage field={slice.primary.image} width={500} />
-     
-//     </div>
-//   </div>
-  
-//   )
-// }
+          </div>
+        </div>
+      </div>
 
-// export default HomeHero
+   
+    </section>
+    )
+   }
+  </>
+  )
+}
+
+export default Home

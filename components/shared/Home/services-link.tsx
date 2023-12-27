@@ -21,13 +21,13 @@ const ServicesLink = ({ slice }: ServicesProps): JSX.Element => {
   return (
     <section className=" p-4 md:p-8 mt-5">
       <div className="mx-auto max-w-6xl">
-        {slice.items.map(({ title,description,image,summary,link },idx) => (
+        {slice.items.map(({ title,description,image,link },idx) => (
           <Link
             key={idx}
             title={title}
             description={description}
             image={image}
-            summary={summary} link={link}            // href='/'
+         link={link}          
           />
         ))}
       </div>
@@ -37,7 +37,7 @@ const ServicesLink = ({ slice }: ServicesProps): JSX.Element => {
 
 
 
-const Link = ({ title, description,image,summary,link }: ServicesSliceDefaultItem) => {
+const Link = ({ title, description,image,link }: ServicesSliceDefaultItem) => {
   const ref = useRef<HTMLAnchorElement | null>(null);
 
   const x = useMotionValue(0);
@@ -83,13 +83,13 @@ const Link = ({ title, description,image,summary,link }: ServicesSliceDefaultIte
           transition={{
             type: "spring",
           }}
-          className="relative z-10 block text-3xl font-bold text-foreground-700 transition-colors duration-500 group-hover:text-gray-800 dark:group-hover:text-neutral-50 md:text-5xl"
+          className="relative block text-3xl font-bold text-foreground-700 transition-colors duration-500 group-hover:text-gray-800 dark:group-hover:text-neutral-50 md:text-5xl"
         >
           {title} 
         </motion.h2>
 
-        <p className="relative z-10 mt-2 block text-base text-gray-700 dark:text-gray-400 transition-colors duration-500 group-hover:text-gray-800 dark:group-hover:text-neutral-50">
-          {summary}
+        <p className="relative= mt-2 block text-base text-gray-700 dark:text-gray-400 transition-colors duration-500 group-hover:text-gray-800 dark:group-hover:text-neutral-50">
+          {description}
         </p>
       </div>
 

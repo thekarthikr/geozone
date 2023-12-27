@@ -11,7 +11,7 @@ export const AboutHero = ({ slice }: AboutHeroProps): JSX.Element => {
    <div>
    <span
      
-     className="border rounded-2xl py-1 px-4 my-3 text-slate-500 text-sm mb-5 hover:scale-105 transition duration-300 ease-in-out"
+     className="border rounded-2xl py-1 px-4 my-3 text-slate-500 text-sm mb-8 hover:scale-105 transition duration-300 ease-in-out"
    >
      About us
    </span>

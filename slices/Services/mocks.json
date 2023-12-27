@@ -27,14 +27,6 @@
 						}
 					],
 					[
-						"summary",
-						{
-							"__TYPE__": "FieldContent",
-							"value": "electric",
-							"type": "Text"
-						}
-					],
-					[
 						"description",
 						{
 							"__TYPE__": "FieldContent",

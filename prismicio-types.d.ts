@@ -1511,95 +1511,9 @@ export type HeroSliceServiceHero = prismic.SharedSliceVariation<
 >;
 
 /**
- * Primary content in *Hero → Primary*
- */
-export interface HeroSliceSeriveHeroWithThumbnailPrimary {
-  /**
-   * Heading field in *Hero → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: hero.primary.heading
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  heading: prismic.KeyTextField;
-
-  /**
-   * Tag field in *Hero → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: hero.primary.tag
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  tag: prismic.KeyTextField;
-
-  /**
-   * Description field in *Hero → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: hero.primary.description
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  description: prismic.KeyTextField;
-
-  /**
-   * Button Name field in *Hero → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: hero.primary.button_one
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  button_one: prismic.KeyTextField;
-
-  /**
-   * Button Link field in *Hero → Primary*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: hero.primary.button_link
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  button_link: prismic.LinkField;
-}
-
-/**
- * Primary content in *Hero → Items*
- */
-export interface HeroSliceSeriveHeroWithThumbnailItem {
-  /**
-   * Images field in *Hero → Items*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: hero.items[].images
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  images: prismic.ImageField<never>;
-}
-
-/**
- * Serive hero with thumbnail variation for Hero Slice
- *
- * - **API ID**: `seriveHeroWithThumbnail`
- * - **Description**: Default
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type HeroSliceSeriveHeroWithThumbnail = prismic.SharedSliceVariation<
-  "seriveHeroWithThumbnail",
-  Simplify<HeroSliceSeriveHeroWithThumbnailPrimary>,
-  Simplify<HeroSliceSeriveHeroWithThumbnailItem>
->;
-
-/**
  * Slice variation for *Hero*
  */
-type HeroSliceVariation =
-  | HeroSliceDefault
-  | HeroSliceServiceHero
-  | HeroSliceSeriveHeroWithThumbnail;
+type HeroSliceVariation = HeroSliceDefault | HeroSliceServiceHero;
 
 /**
  * Hero Shared Slice
@@ -1738,16 +1652,6 @@ export interface ServicesSliceDefaultItem {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   title: prismic.KeyTextField;
-
-  /**
-   * Summary field in *Services → Items*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: services.items[].summary
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  summary: prismic.KeyTextField;
 
   /**
    * Description field in *Services → Items*
@@ -1978,12 +1882,9 @@ declare module "@prismicio/client" {
       HeroSliceDefaultPrimary,
       HeroSliceServiceHeroPrimary,
       HeroSliceServiceHeroItem,
-      HeroSliceSeriveHeroWithThumbnailPrimary,
-      HeroSliceSeriveHeroWithThumbnailItem,
       HeroSliceVariation,
       HeroSliceDefault,
       HeroSliceServiceHero,
-      HeroSliceSeriveHeroWithThumbnail,
       OurWorksSlice,
       OurWorksSliceDefaultPrimary,
       OurWorksSliceDefaultItem,

@@ -1,22 +1,19 @@
 'use client'
 
-import Image from 'next/image'
+
 
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { Navigation, Pagination, Autoplay } from 'swiper/modules'
+import {  Pagination, Autoplay } from 'swiper/modules'
 
 import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 import { SliceComponentProps } from '@prismicio/react'
 import { Content } from '@prismicio/client'
-import { PrismicNextImage, PrismicNextLink } from '@prismicio/next'
+import { PrismicNextImage } from '@prismicio/next'
 
 export type HeroProps = SliceComponentProps<Content.HeroSlice>;
 
-/**
- * Component for "Hero" Slices.
- */
 export const Slides = ({ slice }: HeroProps): JSX.Element => {
 
 
@@ -26,7 +23,7 @@ export const Slides = ({ slice }: HeroProps): JSX.Element => {
     <section className='py-12'>
       <div className='container'>
         <Swiper
-          navigation={true}
+       
         
           loop={true}
         
@@ -37,7 +34,7 @@ export const Slides = ({ slice }: HeroProps): JSX.Element => {
 
           autoplay={true}
        
-          modules={[Navigation, Pagination,Autoplay]}
+          modules={[ Pagination,Autoplay]}
         
           className='h-96 w-full rounded-lg'
         >

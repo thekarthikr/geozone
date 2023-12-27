@@ -2,19 +2,19 @@ import { Content } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
 import Image from "next/image";
 import tick from '@/public/images/tick.svg'
+import { PrismicNextLink } from "@prismicio/next";
+import { Button } from "@/components/ui/button";
 
 export type CallToActionProps = SliceComponentProps<Content.CallToActionSlice>;
 
-/**
- * Component for "CallToAction" Slices.
- */
+
 const ServiceCta = ({ slice }: CallToActionProps): JSX.Element => {
   return (
  
      
 
       
-        <div className="flex rounded-md max-w-4xl mx-auto flex-col items-center bg-card border border-gray-900 border-opacity-70 px-4 py-10 text-center md:py-14">
+        <div className="flex rounded-md max-w-4xl mx-auto flex-col items-center bg-card border border-gray-300 dark:border-gray-900 border-opacity-70 px-4 py-10 text-center md:py-14">
        
           <h2 className="mb-6 flex-col text-3xl font-bold  md:text-5xl  ">
            {slice.primary.title}
@@ -40,22 +40,13 @@ const ServiceCta = ({ slice }: CallToActionProps): JSX.Element => {
              
             </ul>
           </div>
-          {/* CTA Button */}
-          <a
-            href="#"
-            className="mb-4 flex flex-row items-center bg-[#276ef1] px-8 py-4 font-semibold  transition [box-shadow:rgb(171,_196,245)-8px_8px] hover:[box-shadow:rgb(171,_196,_245)_0px_0px]"
-          >
-            <p className="mr-6 font-bold">{slice.primary.button_text} </p>
-            <svg
-              fill="currentColor"
-              className="h-4 w-4 flex-none"
-              viewBox="0 0 20 21"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <title>Arrow Right</title>
-              <polygon points="16.172 9 10.101 2.929 11.515 1.515 20 10 19.293 10.707 11.515 18.485 10.101 17.071 16.172 11 0 11 0 9"></polygon>
-            </svg>
-          </a>
+         
+         <Button variant='outline' className="border border-red-300 dark:border-red-500 text-red-500">
+          <PrismicNextLink field={slice.primary.button_link}>
+            {slice.primary.button_text}
+          </PrismicNextLink>
+         </Button>
+
         
         </div>
      

@@ -28,11 +28,11 @@ const HomeFeatures = ({ slice }: FeaturesProps): JSX.Element => {
           </p>
         </div>
 
-        <div className="grid grid-cols-3 mt-12">
+        <div className="grid gap-5 md:grid-cols-3 grid-cols-1 place-items-center items-start mt-12">
           {slice.items.map(({  title, summary,tagline }, idx) => (
             <Card
               key={idx}
-              className="space-y-3  w-[400px] z-10 relative border border-gray-300 dark:border-gray-900 border-opacity-50"
+              className="space-y-3 h-56  z-10 relative border border-gray-300 dark:border-gray-900 border-opacity-50"
             >
               <Image
                 src={grid}

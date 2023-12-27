@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import Bounded from "@/components/shared/bounded";
 import ServiceCta from "@/components/shared/Service/service-cta";
+import { PrismicNextLink } from "@prismicio/next";
 
 
 export type CallToActionProps = SliceComponentProps<Content.CallToActionSlice>;
@@ -26,22 +27,20 @@ const CallToAction = ({ slice }: CallToActionProps): JSX.Element => {
       <div className="max-w-xl mx-auto text-center relative">
         <div className="py-4">
           <h3 className="text-3xl text-foreground font-semibold md:text-4xl">
-            Unlock the Power of Precision Mapping with Geo Zone Technologies
+          {slice.primary.title}
           </h3>
           <p className="text-foreground-600 leading-relaxed mt-3">
-            Revolutionize your mapping projects with Geo Zone Technologies. From
-            advanced point cloud classifications to seamless topographical
-            mapping, experience precision like never before.
+         {slice.primary.description}
           </p>
         </div>
-        <div className="mt-5 items-center justify-center gap-3 sm:flex">
-          <Button className="block w-full mt-2 py-2.5 px-8 text-gray-700 bg-white rounded-md duration-150 hover:bg-gray-100 sm:w-auto">
-            <Link href="/#services"> Explore </Link>
+     
+          <Button variant="destructive">
+           <PrismicNextLink field={slice.primary.button_link} >
+            {slice.primary.button_text}
+           </PrismicNextLink>
           </Button>
-          <Button className="block w-full mt-2 py-2.5 px-8 text-gray-300 bg-gray-700 rounded-md duration-150 hover:bg-gray-800 sm:w-auto">
-            <Link href="/contact"> Schedule a call</Link>
-          </Button>
-        </div>
+         
+    
       </div>
     </Bounded>
 

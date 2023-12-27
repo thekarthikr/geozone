@@ -35,13 +35,6 @@
             "placeholder": ""
           }
         },
-        "summary": {
-          "type": "Text",
-          "config": {
-            "label": "Summary",
-            "placeholder": ""
-          }
-        },
         "description": {
           "type": "Text",
           "config": {

@@ -12,7 +12,7 @@ const HomeServices = ({ slice }: ServicesProps): JSX.Element => {
     <div className="grid grid-cols-1  md:grid-cols-2">
       <div className="max-w-xl space-y-3">
        
-        <h2 className="text-foreground text-5xl  md:text-7xl font-semibold ">
+        <h2 className="text-foreground text-4xl   md:text-7xl font-semibold ">
           <div>
             What{" "}
             <span className="font-heading text-transparent bg-clip-text bg-gradient-to-r text-clip from-orange-400 to-pink-700">
