@@ -52,8 +52,9 @@ export function Navbar() {
 
   return (
     <nav className="flex justify-between items-center max-w-5xl mx-auto py-4 px-3 md:px-0">
-      <Link href="/">
-        <Image src={logo} alt="Geozone logo" width={50} height={10} />
+      <Link href="/" className="flex flex-col items-center">
+        <Image src={logo} alt="Geozone logo" width={40} height={10} />
+        <span className="font-heading text-sm hidden md:block"> Geo Zone</span>
       </Link>
 
       <NavigationMenu>
@@ -110,7 +111,7 @@ export function Navbar() {
 
           <NavigationMenuItem>
             <Link href="/contact" legacyBehavior passHref>
-              <NavigationMenuLink>
+              <NavigationMenuLink className={navigationMenuTriggerStyle()}>
               Contact
               </NavigationMenuLink>
             </Link>
