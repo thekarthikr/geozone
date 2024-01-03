@@ -1,6 +1,9 @@
 import { Button } from "@/components/ui/button"
 import { Content } from "@prismicio/client";
 import { PrismicLink, SliceComponentProps } from "@prismicio/react";
+import Image from "next/image";
+import img1 from '@/public/images/heroImg.webp'
+import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 
 export type HeroProps = SliceComponentProps<Content.HeroSlice>;
 
@@ -10,39 +13,59 @@ const Home = ({ slice }: HeroProps): JSX.Element => {
   <>
    {
     slice.variation === 'default' && (
-      <section className="relative py-12 magic-pattern  sm:py-28 lg:py-40">
-      {/* <div className="absolute inset-0">
-        <img className="object-cover w-full h-full" src="https://landingfoliocom.imgix.net/store/collection/clarity-blog/images/hero/5/grid-pattern.png" alt=""/>
-      </div> */}
-
-      <div className="relative px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">
-        <div className="max-w-xl mx-auto text-center">
-          <h1 className="text-3xl font-bold  sm:text-4xl lg:text-5xl">
-         {slice.primary.heading}
-          </h1>
-          <p className="max-w-md mx-auto mt-6 text-base font-normal leading-7 ">
+      <section className=" ">
+      <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+        <div className="grid  grid-cols-1 gap-12 lg:grid-cols-2">
+          <div className="flex mt-32 flex-col text-center lg:text-left gap-4">
+            <p className="text-base font-semibold tracking-wider text-blue-600 uppercase">
+           {slice.primary.tag}
+            </p>
+            <h1 className=" text-2xl font-bold  sm:text-5xl">
+           {slice.primary.heading}
+            </h1>
+            <p className="   sm:text-xl">
            {slice.primary.description}
-          </p>
+            </p>
 
-      
+           <div className="space-x-4 ">
+            <Button >
+              <PrismicNextLink field={slice.primary.button_one_link} >
+                {slice.primary.button_one_name}
+              </PrismicNextLink>
+            </Button>
 
-          <div className="flex items-center justify-center mt-6 space-x-6 sm:space-x-8">
-           <Button >
-           <PrismicLink field={slice.primary.button_one_link}>
-            {slice.primary.button_one_name}
-           </PrismicLink>
-           </Button>
-           <Button variant="outline" >
-           <PrismicLink field={slice.primary.button_two_link}>
-            {slice.primary.button_two_name}
-           </PrismicLink>
-           </Button>
+            <Button variant='outline'>
+              <PrismicNextLink field={slice.primary.button_two_link} >
+                {slice.primary.button_two_name}
+              </PrismicNextLink>
+            </Button>
+           </div>
+          </div>
 
+          <div>
+            <div className='flex gap-5'>
+            <div className="space-y-4 pt-28">
+              {
+                slice.items.slice(0,2).map(({image})=>(
+                  <PrismicNextImage className="aspect-[2/3] object-cover w-44 rounded-md" field={image} />
+                ))
+              }
+                </div>
+              
+                <div className="space-y-4">
+                {
+                slice.items.slice(2,4).map(({image})=>(
+                  <PrismicNextImage className="aspect-[2/3] object-cover w-44 rounded-md" field={image} />
+                ))
+              }
+                </div>
+                <div className="pt-28">
+                <PrismicNextImage className="aspect-[2/3] object-cover w-44 rounded-md" field={slice.items[4].image} />
+                </div>
+            </div>
           </div>
         </div>
       </div>
-
-   
     </section>
     )
    }

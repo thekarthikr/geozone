@@ -1384,16 +1384,6 @@ export interface HeroSliceDefaultPrimary {
   button_two_name: prismic.KeyTextField;
 
   /**
-   * Image field in *Hero → Primary*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: hero.primary.image
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  image: prismic.ImageField<never>;
-
-  /**
    * Button One Link field in *Hero → Primary*
    *
    * - **Field Type**: Link
@@ -1415,6 +1405,21 @@ export interface HeroSliceDefaultPrimary {
 }
 
 /**
+ * Primary content in *Hero → Items*
+ */
+export interface HeroSliceDefaultItem {
+  /**
+   * Image field in *Hero → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.items[].image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+}
+
+/**
  * Default variation for Hero Slice
  *
  * - **API ID**: `default`
@@ -1424,7 +1429,7 @@ export interface HeroSliceDefaultPrimary {
 export type HeroSliceDefault = prismic.SharedSliceVariation<
   "default",
   Simplify<HeroSliceDefaultPrimary>,
-  never
+  Simplify<HeroSliceDefaultItem>
 >;
 
 /**
@@ -1880,6 +1885,7 @@ declare module "@prismicio/client" {
       FeaturesSliceServicePageServices,
       HeroSlice,
       HeroSliceDefaultPrimary,
+      HeroSliceDefaultItem,
       HeroSliceServiceHeroPrimary,
       HeroSliceServiceHeroItem,
       HeroSliceVariation,

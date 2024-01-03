@@ -47,14 +47,6 @@
             "placeholder": ""
           }
         },
-        "image": {
-          "type": "Image",
-          "config": {
-            "label": "Image",
-            "constraint": {},
-            "thumbnails": []
-          }
-        },
         "button_one_link": {
           "type": "Link",
           "config": {
@@ -72,7 +64,16 @@
           }
         }
       },
-      "items": {}
+      "items": {
+        "image": {
+          "type": "Image",
+          "config": {
+            "label": "Image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        }
+      }
     },
     {
       "id": "serviceHero",
