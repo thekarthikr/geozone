@@ -20,15 +20,7 @@ const NavItems = () => {
     
      
       </NavigationMenuItem>
-      <NavigationMenuItem>
-        <Link href="/#features   ">
-        <SheetClose>
-        <NavigationMenuLink >
-            Features
-          </NavigationMenuLink>
-        </SheetClose>
-        </Link>
-      </NavigationMenuItem>
+  
 
       <NavServices />
 
