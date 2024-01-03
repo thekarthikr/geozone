@@ -42,20 +42,21 @@ const Home = ({ slice }: HeroProps): JSX.Element => {
            </div>
           </div>
 
-          <div>
-            <div className='flex gap-5'>
+          <div >
+            <div className='hidden  md:flex gap-5'>
             <div className="space-y-4 pt-28">
               {
-                slice.items.slice(0,2).map(({image})=>(
-                  <PrismicNextImage className="aspect-[2/3] object-cover w-44 rounded-md" field={image} />
+
+slice.items.slice(0,2).map(({image},idx)=>(
+                  <PrismicNextImage key={idx} className="aspect-[2/3] object-cover w-44 rounded-md" field={image} />
                 ))
               }
                 </div>
               
                 <div className="space-y-4">
                 {
-                slice.items.slice(2,4).map(({image})=>(
-                  <PrismicNextImage className="aspect-[2/3] object-cover w-44 rounded-md" field={image} />
+                slice.items.slice(2,4).map(({image},idx)=>(
+                  <PrismicNextImage key={idx} className="aspect-[2/3] object-cover w-44 rounded-md" field={image} />
                 ))
               }
                 </div>
