@@ -3,23 +3,18 @@ import { SliceComponentProps } from "@prismicio/react";
 import { CardHeader,Card, CardContent,CardTitle,CardDescription } from "../../ui/card";
 import Image from "next/image";
 import grid from'@/public/images/grid.svg'
-/**
- * Props for `Features`.
- */
+
 export type FeaturesProps = SliceComponentProps<Content.FeaturesSlice>;
 
-/**
- * Component for "Features" Slices.
- */
+
 const HomeFeatures = ({ slice }: FeaturesProps): JSX.Element => {
   return (
-    <div>
+    <div >
        
-
-       <div className="max-w-xl space-y-3" id="features" >
-          {/* <Chip color="secondary" variant="flat">
-            Why choose us{" "}
-          </Chip> */}
+     
+       <div className="max-w-xl  space-y-3" id="features" >
+         
+         
           <h2 className="text-foreground text-3xl font-semibold sm:text-4xl">
            {slice.primary.heading}
           </h2>

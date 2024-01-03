@@ -1,6 +1,6 @@
 import Bounded from "@/components/shared/bounded";
+import ServiceCardLink from "@/components/shared/Home/service-card";
 import HomeServices from "@/components/shared/Home/services";
-import ServicesLink from "@/components/shared/Home/services-link";
 import { Content } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
 
@@ -16,8 +16,8 @@ const Services = ({ slice }: ServicesProps): JSX.Element => {
     >
   
      <HomeServices slice={slice} index={0} slices={[]} context={undefined} />   
-      <ServicesLink slice={slice} index={0} slices={[]} context={undefined} />
-  
+      {/* <ServicesLink slice={slice} index={0} slices={[]} context={undefined} /> */}
+      <ServiceCardLink slice={slice} index={0} slices={[]} context={undefined}/>
     </Bounded>
   );
 };

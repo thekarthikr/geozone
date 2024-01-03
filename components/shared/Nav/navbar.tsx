@@ -70,7 +70,7 @@ export function Navbar() {
 
           <NavigationMenuItem>
             <NavigationMenuTrigger>Services</NavigationMenuTrigger>
-            <NavigationMenuContent>
+            <NavigationMenuContent className="backdrop-blur-sm">
               <ul className="grid w-[300px] gap-3 p-4 md:w-[400px] md:grid-cols-2 lg:w-[500px] ">
                 {services?.map(({ name, summary, link }, idx) => (
                   <li key={idx}>
@@ -81,7 +81,7 @@ export function Navbar() {
                           {" "}
                           {name}{" "}
                         </div>
-                        <p className="line-clamp-3 text-sm leading-snug text-muted-foreground">
+                        <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
                           {summary}
                         </p>
                       </div>

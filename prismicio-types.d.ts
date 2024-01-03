@@ -5,6 +5,7 @@ import type * as prismic from "@prismicio/client";
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
 type HomepageDocumentDataSlicesSlice =
+  | IndustriesSlice
   | ServicesSlice
   | FaqsSlice
   | CallToActionSlice
@@ -1530,6 +1531,106 @@ type HeroSliceVariation = HeroSliceDefault | HeroSliceServiceHero;
 export type HeroSlice = prismic.SharedSlice<"hero", HeroSliceVariation>;
 
 /**
+ * Primary content in *Industries → Primary*
+ */
+export interface IndustriesSliceDefaultPrimary {
+  /**
+   * Heading field in *Industries → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: industries.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading: prismic.KeyTextField;
+
+  /**
+   * Description field in *Industries → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: industries.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  description: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *Industries → Items*
+ */
+export interface IndustriesSliceDefaultItem {
+  /**
+   * Title field in *Industries → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: industries.items[].title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Description field in *Industries → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: industries.items[].description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  description: prismic.KeyTextField;
+
+  /**
+   * Item Id field in *Industries → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: industries.items[].item_id
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  item_id: prismic.KeyTextField;
+
+  /**
+   * Color field in *Industries → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: industries.items[].color
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  color: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for Industries Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type IndustriesSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<IndustriesSliceDefaultPrimary>,
+  Simplify<IndustriesSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *Industries*
+ */
+type IndustriesSliceVariation = IndustriesSliceDefault;
+
+/**
+ * Industries Shared Slice
+ *
+ * - **API ID**: `industries`
+ * - **Description**: Industries
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type IndustriesSlice = prismic.SharedSlice<
+  "industries",
+  IndustriesSliceVariation
+>;
+
+/**
  * Primary content in *OurWorks → Primary*
  */
 export interface OurWorksSliceDefaultPrimary {
@@ -1891,6 +1992,11 @@ declare module "@prismicio/client" {
       HeroSliceVariation,
       HeroSliceDefault,
       HeroSliceServiceHero,
+      IndustriesSlice,
+      IndustriesSliceDefaultPrimary,
+      IndustriesSliceDefaultItem,
+      IndustriesSliceVariation,
+      IndustriesSliceDefault,
       OurWorksSlice,
       OurWorksSliceDefaultPrimary,
       OurWorksSliceDefaultItem,

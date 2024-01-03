@@ -1,8 +1,6 @@
 import { Button } from "@/components/ui/button"
 import { Content } from "@prismicio/client";
-import { PrismicLink, SliceComponentProps } from "@prismicio/react";
-import Image from "next/image";
-import img1 from '@/public/images/heroImg.webp'
+import {  SliceComponentProps } from "@prismicio/react";
 import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 
 export type HeroProps = SliceComponentProps<Content.HeroSlice>;
@@ -13,7 +11,8 @@ const Home = ({ slice }: HeroProps): JSX.Element => {
   <>
    {
     slice.variation === 'default' && (
-      <section className=" ">
+      <section className="relative ">
+      
       <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
         <div className="grid  grid-cols-1 gap-12 lg:grid-cols-2">
           <div className="flex mt-32 flex-col text-center lg:text-left gap-4">

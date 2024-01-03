@@ -9,6 +9,7 @@ export const components = {
   faqs: dynamic(() => import("./Faqs")),
   features: dynamic(() => import("./Features")),
   hero: dynamic(() => import("./Hero")),
+  industries: dynamic(() => import("./Industries")),
   our_works: dynamic(() => import("./OurWorks")),
   services: dynamic(() => import("./Services")),
   technologies: dynamic(() => import("./Technologies")),

@@ -4,7 +4,6 @@ import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 import Bounded from "@/components/shared/bounded";
 import { Button } from "@/components/ui/button";
 import { Slides } from "@/components/shared/Service/slides";
-import ThumbnailSlides from "@/components/shared/Service/thumbnail-slides";
 import Home from '@/components/shared/Home/hero'
 import ServiceHero from "@/components/shared/Service/service-hero";
 
@@ -30,14 +29,18 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
     }
     
    
-       <section
-          data-slice-type={slice.slice_type}
-          data-slice-variation={slice.variation}
-        >
-           
-         <ServiceHero slice={slice} index={1} slices={[]} context={undefined}  />
-        
-        </section>
+     {
+      slice.variation === 'serviceHero' && (
+        <section
+        data-slice-type={slice.slice_type}
+        data-slice-variation={slice.variation}
+      >
+       
+       <ServiceHero slice={slice} index={1} slices={[]} context={undefined}  />
+      
+      </section>
+      )
+     }
    
 
 
