@@ -1,0 +1,55 @@
+{
+  "id": "training",
+  "type": "SharedSlice",
+  "name": "Training",
+  "description": "Training",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "heading": {
+          "type": "Text",
+          "config": {
+            "label": "Heading",
+            "placeholder": ""
+          }
+        },
+        "description": {
+          "type": "Text",
+          "config": {
+            "label": "Description",
+            "placeholder": ""
+          }
+        },
+        "summary": {
+          "type": "Text",
+          "config": {
+            "label": "Summary",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "Title",
+            "placeholder": ""
+          }
+        },
+        "summary": {
+          "type": "Text",
+          "config": {
+            "label": "Summary",
+            "placeholder": ""
+          }
+        }
+      }
+    }
+  ]
+}

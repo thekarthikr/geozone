@@ -4,6 +4,8 @@ import { SliceComponentProps } from "@prismicio/react";
 import ServiceCard from "@/components/shared/Service/service-card";
 import HomeFeatures from "@/components/shared/Home/home-features";
 import AboutGoal from "@/components/shared/About/about-goal";
+import { DroneVideography } from "@/components/shared/Service/service-drone-video";
+import ServiceEditing from "@/components/shared/Service/service-editing";
 
 
 
@@ -86,6 +88,19 @@ const Features = ({ slice }: FeaturesProps): JSX.Element => {
      
     )
   }
+
+
+     {
+      slice.variation === 'videography' && (
+        <DroneVideography slice={slice} index={0} slices={[]} context={undefined} />
+      )
+     }
+
+{
+      slice.variation === "videoEditing" && (
+        <ServiceEditing slice={slice} index={0} slices={[]} context={undefined} />
+      )
+     }
 
     </>
   

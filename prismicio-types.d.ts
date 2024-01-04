@@ -248,6 +248,7 @@ export type NavigationDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | TrainingSlice
   | CallToActionSlice
   | OurWorksSlice
   | FeaturesSlice
@@ -1310,13 +1311,161 @@ export type FeaturesSliceServicePageServices = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *Features → Primary*
+ */
+export interface FeaturesSliceVideographyPrimary {
+  /**
+   * Tag field in *Features → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: features.primary.tag
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  tag: prismic.KeyTextField;
+
+  /**
+   * Heading field in *Features → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: features.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading: prismic.KeyTextField;
+
+  /**
+   * Description field in *Features → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: features.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  description: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *Features → Items*
+ */
+export interface FeaturesSliceVideographyItem {
+  /**
+   * Title field in *Features → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: features.items[].title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+}
+
+/**
+ * Videography variation for Features Slice
+ *
+ * - **API ID**: `videography`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FeaturesSliceVideography = prismic.SharedSliceVariation<
+  "videography",
+  Simplify<FeaturesSliceVideographyPrimary>,
+  Simplify<FeaturesSliceVideographyItem>
+>;
+
+/**
+ * Primary content in *Features → Primary*
+ */
+export interface FeaturesSliceVideoEditingPrimary {
+  /**
+   * Tag field in *Features → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: features.primary.tag
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  tag: prismic.KeyTextField;
+
+  /**
+   * Heading field in *Features → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: features.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading: prismic.KeyTextField;
+
+  /**
+   * Description field in *Features → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: features.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  description: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *Features → Items*
+ */
+export interface FeaturesSliceVideoEditingItem {
+  /**
+   * Title field in *Features → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: features.items[].title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Images field in *Features → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: features.items[].images
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  images: prismic.ImageField<never>;
+
+  /**
+   * Summary field in *Features → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: features.items[].summary
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  summary: prismic.KeyTextField;
+}
+
+/**
+ * Video Editing variation for Features Slice
+ *
+ * - **API ID**: `videoEditing`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FeaturesSliceVideoEditing = prismic.SharedSliceVariation<
+  "videoEditing",
+  Simplify<FeaturesSliceVideoEditingPrimary>,
+  Simplify<FeaturesSliceVideoEditingItem>
+>;
+
+/**
  * Slice variation for *Features*
  */
 type FeaturesSliceVariation =
   | FeaturesSliceDefault
   | FeaturesSliceAboutPurposeAndGoal
   | FeaturesSliceWhyChooseUs
-  | FeaturesSliceServicePageServices;
+  | FeaturesSliceServicePageServices
+  | FeaturesSliceVideography
+  | FeaturesSliceVideoEditing;
 
 /**
  * Features Shared Slice
@@ -1920,6 +2069,96 @@ export type TechnologiesSlice = prismic.SharedSlice<
   TechnologiesSliceVariation
 >;
 
+/**
+ * Primary content in *Training → Primary*
+ */
+export interface TrainingSliceDefaultPrimary {
+  /**
+   * Heading field in *Training → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: training.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading: prismic.KeyTextField;
+
+  /**
+   * Description field in *Training → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: training.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  description: prismic.KeyTextField;
+
+  /**
+   * Summary field in *Training → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: training.primary.summary
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  summary: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *Training → Items*
+ */
+export interface TrainingSliceDefaultItem {
+  /**
+   * Title field in *Training → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: training.items[].title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Summary field in *Training → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: training.items[].summary
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  summary: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for Training Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TrainingSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<TrainingSliceDefaultPrimary>,
+  Simplify<TrainingSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *Training*
+ */
+type TrainingSliceVariation = TrainingSliceDefault;
+
+/**
+ * Training Shared Slice
+ *
+ * - **API ID**: `training`
+ * - **Description**: Training
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TrainingSlice = prismic.SharedSlice<
+  "training",
+  TrainingSliceVariation
+>;
+
 declare module "@prismicio/client" {
   interface CreateClient {
     (
@@ -1979,11 +2218,17 @@ declare module "@prismicio/client" {
       FeaturesSliceWhyChooseUsPrimary,
       FeaturesSliceServicePageServicesPrimary,
       FeaturesSliceServicePageServicesItem,
+      FeaturesSliceVideographyPrimary,
+      FeaturesSliceVideographyItem,
+      FeaturesSliceVideoEditingPrimary,
+      FeaturesSliceVideoEditingItem,
       FeaturesSliceVariation,
       FeaturesSliceDefault,
       FeaturesSliceAboutPurposeAndGoal,
       FeaturesSliceWhyChooseUs,
       FeaturesSliceServicePageServices,
+      FeaturesSliceVideography,
+      FeaturesSliceVideoEditing,
       HeroSlice,
       HeroSliceDefaultPrimary,
       HeroSliceDefaultItem,
@@ -2012,6 +2257,11 @@ declare module "@prismicio/client" {
       TechnologiesSliceDefaultItem,
       TechnologiesSliceVariation,
       TechnologiesSliceDefault,
+      TrainingSlice,
+      TrainingSliceDefaultPrimary,
+      TrainingSliceDefaultItem,
+      TrainingSliceVariation,
+      TrainingSliceDefault,
     };
   }
 }

@@ -8,7 +8,7 @@ export type ServicesProps = SliceComponentProps<Content.ServicesSlice>;
 
 const HomeServices = ({ slice }: ServicesProps): JSX.Element => {
   return (
-    <div className="max-w-screen-xl mx-auto px-4 text-gray-600 md:px-8">
+    <div className="max-w-7xl mx-auto px-4 text-gray-600 md:px-8">
     <div className="grid grid-cols-1  md:grid-cols-2">
       <div className="max-w-xl space-y-3">
        

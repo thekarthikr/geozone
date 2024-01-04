@@ -12,7 +12,10 @@ const ServiceCard = ({ slice }: FeaturesProps): JSX.Element => {
  
  
 return (
-  <div className="">
+<>
+
+{slice.variation === 'servicePageServices' && (
+    <div className="">
 
     <div className="max-w-3xl mx-auto text-center py-8">
       <h2 className="text-3xl md:text-5xl">
@@ -89,6 +92,8 @@ return (
   </div>
  
 </div>
+)}
+</>
 )
 
 

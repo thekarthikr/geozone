@@ -15,8 +15,8 @@ export type ServicesProps = SliceComponentProps<Content.ServicesSlice>;
 const ServiceCardLink = ({ slice }: ServicesProps): JSX.Element => {
   return (
     <section>
-    <div className="relative items-center w-full px-5 py-12 mx-auto md:px-12 lg:px-24 max-w-7xl">
-      <div className="grid w-full grid-cols-1 gap-6 place-items-center items-center justify-center mx-auto lg:grid-cols-3">
+    <div className="relative items-center w-full px-5 py-12 mx-auto md:px-12 lg:px-24 ">
+      <div className="grid w-full grid-cols-1 gap-6 place-items-center items-center justify-center mx-auto lg:grid-cols-4">
         {slice.items.map(({title,description,link,image},index)=>(
    <div key={index} className="p-6">
    <PrismicNextImage
@@ -25,9 +25,9 @@ const ServiceCardLink = ({ slice }: ServicesProps): JSX.Element => {
     
    />
 
-   <h1 className="mx-auto mb-8 text-2xl font-semibold leading-none tracking-tighter  lg:text-3xl">
+   <h3 className="mx-auto mb-8 text-lg font-semibold leading-none tracking-tighter  lg:text-xl">
     {title}
-   </h1>
+   </h3>
    <p className="mx-auto text-base line-clamp-3 leading-relaxed ">
     {description}
    </p>

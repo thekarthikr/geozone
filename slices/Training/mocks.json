@@ -1,0 +1,46 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"heading": {
+				"__TYPE__": "FieldContent",
+				"value": "habit",
+				"type": "Text"
+			},
+			"description": {
+				"__TYPE__": "FieldContent",
+				"value": "record",
+				"type": "Text"
+			},
+			"summary": {
+				"__TYPE__": "FieldContent",
+				"value": "milk",
+				"type": "Text"
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"title",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "perfectly",
+							"type": "Text"
+						}
+					],
+					[
+						"summary",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "one",
+							"type": "Text"
+						}
+					]
+				]
+			}
+		]
+	}
+]
