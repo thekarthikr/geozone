@@ -32,14 +32,14 @@ const NavServices =  () => {
   }, []);
 
   return (
-    <Accordion type="single" collapsible className="w-full">
-      <AccordionItem value="item-1">
-        <AccordionTrigger className='flex gap-2 font-semibold'>Services <ChevronDown className='text-sm ' /> </AccordionTrigger>
-        <AccordionContent className='flex flex-col '>
+    <Accordion type="single" collapsible className="w-full ">
+      <AccordionItem  value="item-1">
+        <AccordionTrigger  className='flex gap-2 font-semibold'>Services <ChevronDown className='text-sm ' /> </AccordionTrigger>
+        <AccordionContent  className='flex flex-col '>
         {services?.map((component) => (
                 
                 <PrismicNextLink key={component.name} field={component.link}>
-                  <SheetClose className='py-2'>
+                  <SheetClose className='text-md text-left'>
                  
                   {component.name}
                  
