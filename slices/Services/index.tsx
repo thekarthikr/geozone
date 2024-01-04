@@ -13,10 +13,10 @@ export type ServicesProps = SliceComponentProps<Content.ServicesSlice>;
 
 const Services = ({ slice }: ServicesProps): JSX.Element => {
   return (
-    <section
+    <Bounded
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-
+   
     >
   
      <HomeServices slice={slice} index={0} slices={[]} context={undefined} />   
@@ -25,7 +25,7 @@ const Services = ({ slice }: ServicesProps): JSX.Element => {
      
      
     
-    </section>
+    </Bounded>
   );
 };
 

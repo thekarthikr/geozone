@@ -24,9 +24,9 @@ const ServiceCardLink = ({ slice }: ServicesProps): JSX.Element => {
   return (
     <section>
     <div className="relative items-center w-full px-5 py-12 mx-auto md:px-12 lg:px-24 ">
-      <div className="grid w-full grid-cols-1 gap-6 place-items-center items-center justify-center mx-auto lg:grid-cols-4">
+      <div className="grid w-full grid-cols-1 gap-6 place-content-center items-start justify-center mx-auto md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 ">
         {slice.items.map(({title,description,link,image},index)=>(
-   <div key={index} className="p-6">
+   <div key={index} className="p-4 bg-gray-100/20 dark:bg-black/20 rounded-sm shadow-lg border border-gray-300/50 dark:border-gray-500/10">
    <PrismicNextImage
    field={image}
      className="object-cover object-center w-full mb-8 lg:h-48 md:h-36 rounded-xl"

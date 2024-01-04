@@ -87,31 +87,6 @@ export type HomepageDocument<Lang extends string = string> =
   >;
 
 /**
- * Item in *Footer → Explore*
- */
-export interface NavigationDocumentDataExploreItem {
-  /**
-   * Name field in *Footer → Explore*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: navigation.explore[].name
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  name: prismic.KeyTextField;
-
-  /**
-   * Link field in *Footer → Explore*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: navigation.explore[].link
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  link: prismic.LinkField;
-}
-
-/**
  * Item in *Footer → Services*
  */
 export interface NavigationDocumentDataServicesItem {
@@ -147,25 +122,25 @@ export interface NavigationDocumentDataServicesItem {
 }
 
 /**
- * Item in *Footer → Contact*
+ * Item in *Footer → Quick Links*
  */
-export interface NavigationDocumentDataContactItem {
+export interface NavigationDocumentDataQuickLinksItem {
   /**
-   * Name field in *Footer → Contact*
+   * Name field in *Footer → Quick Links*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: navigation.contact[].name
+   * - **API ID Path**: navigation.quick_links[].name
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   name: prismic.KeyTextField;
 
   /**
-   * Link field in *Footer → Contact*
+   * Link field in *Footer → Quick Links*
    *
    * - **Field Type**: Link
    * - **Placeholder**: *None*
-   * - **API ID Path**: navigation.contact[].link
+   * - **API ID Path**: navigation.quick_links[].link
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
   link: prismic.LinkField;
@@ -175,39 +150,6 @@ export interface NavigationDocumentDataContactItem {
  * Content for Footer documents
  */
 interface NavigationDocumentData {
-  /**
-   * Title field in *Footer*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: navigation.title
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  title: prismic.KeyTextField;
-
-  /**
-   * Description field in *Footer*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: navigation.description
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  description: prismic.KeyTextField;
-
-  /**
-   * Explore field in *Footer*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: navigation.explore[]
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#group
-   */
-  explore: prismic.GroupField<Simplify<NavigationDocumentDataExploreItem>>;
-
   /**
    * Services field in *Footer*
    *
@@ -220,15 +162,17 @@ interface NavigationDocumentData {
   services: prismic.GroupField<Simplify<NavigationDocumentDataServicesItem>>;
 
   /**
-   * Contact field in *Footer*
+   * Quick Links field in *Footer*
    *
    * - **Field Type**: Group
    * - **Placeholder**: *None*
-   * - **API ID Path**: navigation.contact[]
+   * - **API ID Path**: navigation.quick_links[]
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#group
    */
-  contact: prismic.GroupField<Simplify<NavigationDocumentDataContactItem>>;
+  quick_links: prismic.GroupField<
+    Simplify<NavigationDocumentDataQuickLinksItem>
+  >;
 }
 
 /**
@@ -1494,6 +1438,16 @@ export interface HeroSliceDefaultPrimary {
   heading: prismic.KeyTextField;
 
   /**
+   * Hightlighted Text field in *Hero → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.primary.hightlighted_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  hightlighted_text: prismic.KeyTextField;
+
+  /**
    * Tag field in *Hero → Primary*
    *
    * - **Field Type**: Text
@@ -2174,9 +2128,8 @@ declare module "@prismicio/client" {
       HomepageDocumentDataSlicesSlice,
       NavigationDocument,
       NavigationDocumentData,
-      NavigationDocumentDataExploreItem,
       NavigationDocumentDataServicesItem,
-      NavigationDocumentDataContactItem,
+      NavigationDocumentDataQuickLinksItem,
       PageDocument,
       PageDocumentData,
       PageDocumentDataSlicesSlice,

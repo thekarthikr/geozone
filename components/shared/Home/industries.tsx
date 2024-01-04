@@ -33,12 +33,12 @@ export const Industries = ({ slice }: IndustriesProps): JSX.Element => {
                 <div className="mt-12">
                     <ul className="grid gap-y-8 gap-x-12 sm:grid-cols-2 lg:grid-cols-3">
                         {
-                            slice.items.map(({title,description,item_id,color}, idx) => (
+                            slice.items.map(({title,description,item_id}, idx) => (
                                 <li key={idx} className="space-y-3">
                                  
-                                 <div className={`w-16 h-16 mx-auto bg-${color}-500 text-${color}-600 rounded-full flex items-center justify-center`}>
+                                 <div className={`w-16 h-16 mx-auto bg-red-300/30 dark:bg-red-700/30 text-red-500 rounded-full flex items-center justify-center`}>
   {item_id && icons[item_id as keyof typeof icons] && (
-    React.createElement(icons[item_id as keyof typeof icons], { className: 'text-xl' })
+    React.createElement(icons[item_id as keyof typeof icons], { className: 'text-5xl' })
   )}
 </div>
 

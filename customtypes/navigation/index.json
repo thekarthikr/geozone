@@ -6,43 +6,6 @@
   "status": true,
   "json": {
     "Main": {
-      "title": {
-        "type": "Text",
-        "config": {
-          "label": "Title",
-          "placeholder": ""
-        }
-      },
-      "description": {
-        "type": "Text",
-        "config": {
-          "label": "Description",
-          "placeholder": ""
-        }
-      },
-      "explore": {
-        "type": "Group",
-        "config": {
-          "label": "Explore",
-          "fields": {
-            "name": {
-              "type": "Text",
-              "config": {
-                "label": "Name",
-                "placeholder": ""
-              }
-            },
-            "link": {
-              "type": "Link",
-              "config": {
-                "label": "Link",
-                "placeholder": "",
-                "select": null
-              }
-            }
-          }
-        }
-      },
       "services": {
         "type": "Group",
         "config": {
@@ -73,10 +36,10 @@
           }
         }
       },
-      "contact": {
+      "quick_links": {
         "type": "Group",
         "config": {
-          "label": "Contact",
+          "label": "Quick Links",
           "fields": {
             "name": {
               "type": "Text",

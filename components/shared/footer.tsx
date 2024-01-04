@@ -5,6 +5,7 @@ import { BsTwitterX,BsFacebook,BsInstagram,BsLinkedin } from "react-icons/bs";
 
 import React from "react";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 
 const client = createClient()
@@ -20,72 +21,72 @@ const Footer = async () => {
     Linkedin: BsLinkedin
   }
   
+  const footerNavs = [
+    {
+        href: 'javascript:void()',
+        name: 'About'
+    },
+    {
+        href: 'javascript:void()',
+        name: 'Blog'
+    },
+    {
+        href: 'javascript:void()',
+        name: ''
+    },
+    {
+        href: 'javascript:void()',
+        name: 'Team'
+    },
+    {
+        href: 'javascript:void()',
+        name: 'Careers'
+    },
+
+    {
+        href: 'javascript:void()',
+        name: 'Suuport'
+    }
+]
+
+
+
+
   return (
-    <footer className="text-gray- px-4 py-5  md:px-8  border-t border-gray-800 border-opacity-60">
-      <div className="gap-6 justify-between md:flex">
-        <div className="flex-1">
-          <div className="max-w-xs">
-            <h2>{footer.data.title} </h2>
-            <p className="leading-relaxed mt-2 text-[15px]">
-             {footer.data.description}
-            </p>
-          </div>
-        </div>
-        <div className="flex-1 mt-10 space-y-6  justify-between sm:flex md:space-y-0 md:mt-0">
 
-            <ul className="space-y-4" >
-            <span className="font-heading font-semibold" > Explore </span>
-              {footer.data.explore.map(({ name,link }, idx) => (
-                <li key={idx}>
-                  
-                
-                 <PrismicNextLink
-                  field={link}
-                    className="hover:underline hover:text-indigo-600"
-                  >
-                    {name}
-                  </PrismicNextLink>
-                
-                </li>
-              ))}
-            </ul>
-            <ul className="space-y-4" >
-             <span className="font-heading font-semibold" > Services </span>
-            {footer.data.services.map(({ name,link }, idx) => (
-              <li key={idx}>
-            
-              <PrismicNextLink
-                field={link}
-                  className="hover:underline hover:text-indigo-600"
-                >
-                  {name}
-                </PrismicNextLink>
-           
-              </li>
-            ))}
-          </ul>
-          <ul className="space-y-4" >
-          <span className="font-heading font-semibold" > Contacts </span>
-            {footer.data.contact.map(({ name,link }, idx) => (
-              <li key={idx}>
-             
-               <PrismicNextLink
-                field={link}
-                  className="hover:underline hover:text-indigo-600"
-                >
-                  {name}
-                </PrismicNextLink>
-           
 
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
+    <footer className="text-gray- px-4 py-5  md:px-8 ">
+      
+
+
+       
+         
+        
+
+
       <div className="mt-8 py-6 border-t border-gray-900 border-opacity-30 items-center justify-between sm:flex">
         <div className="mt-4 sm:mt-0">
           &copy; { new Date().getFullYear()  } GeoZone All rights reserved.
         </div>
+
+           
+        <ul className="items-center justify-center  space-y-5 sm:flex sm:space-x-4 sm:space-y-0">
+                {
+                    footer.data.quick_links.map((item, idx) => (
+                        <li key={idx} className=" hover:text-gray-800">
+                        {
+                          item.link.link_type === 'Web' ? <Link href='/#services'>
+                           {item.name}
+                          </Link> :  <PrismicNextLink field={item.link}>
+                                { item.name } 
+                            </PrismicNextLink>
+                        }
+
+                          
+                        </li>
+                    ))
+                }
+            </ul>
         <div className="mt-6 sm:mt-0">
           <ul className="flex items-center space-x-4">
             {social.data.social_media.map(({ name,link },idx) => (
