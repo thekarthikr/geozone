@@ -7,6 +7,14 @@ import { SliceComponentProps } from '@prismicio/react'
 import { Content } from '@prismicio/client'
 import { PrismicNextImage, PrismicNextLink } from '@prismicio/next'
 
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog"
 
 
 export type ServicesProps = SliceComponentProps<Content.ServicesSlice>;
@@ -26,21 +34,58 @@ const ServiceCardLink = ({ slice }: ServicesProps): JSX.Element => {
    />
 
    <h3 className="mx-auto mb-8 text-lg font-semibold leading-none tracking-tighter  lg:text-xl">
-    {title}
+    {title} {link.link_type}
    </h3>
    <p className="mx-auto text-base line-clamp-3 leading-relaxed ">
     {description}
    </p>
+  
+  
+{
+  link.link_type == 'Any' ? <Dialog>
+  <DialogTrigger>  <span
+  
+    className="inline-flex items-center mt-4 font-semibold text-red-600 lg:mb-0 "
+    title="read more"
+  >
+    Read More »
+  </span></DialogTrigger>
+  <DialogContent>
+    <DialogHeader>
+      <DialogTitle className='font-heading text-center text-xl'>Rental Services</DialogTitle>
+      <DialogDescription className='flex flex-col gap-3'>
+        <p>
+        Geo Zone offers Rental Services as well. We expertise in rental field and provide latest drones, computers and laptop throughout. 
+        </p>
+        <p>
+        We rent our drones for Construction sites, Mining Sites, Precision agriculture, Professional Cinematography, Building inspection, Land survey, Energy, Utility, Power and Public service.
 
-   <div className="mt-4">
-     <PrismicNextLink
-       field={link}
-       className="inline-flex items-center mt-4 font-semibold text-red-600 lg:mb-0 "
-       title="read more"
-     >
-       Read More »
-     </PrismicNextLink>
-   </div>
+        </p>
+      
+<p>
+We rent laptops as well High-end computers, A machine that will run all of the games, processing projects at all of the highest graphics settings, and continue to do so for all time. Portable without compromising performance, the laptops and computers are ideal for processing, office works.
+
+</p>
+<p>
+Shipping available to any location in Tamilnadu.
+
+</p>
+
+      </DialogDescription>
+    </DialogHeader>
+  </DialogContent>
+</Dialog>
+ : <div className="mt-4">
+  <PrismicNextLink
+    field={link}
+    className="inline-flex items-center mt-4 font-semibold text-red-600 lg:mb-0 "
+    title="read more"
+  >
+    Read More »
+  </PrismicNextLink>
+</div>
+}
+   
  </div>
         )) 
 }
