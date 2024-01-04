@@ -34,7 +34,7 @@ const ServiceCardLink = ({ slice }: ServicesProps): JSX.Element => {
    />
 
    <h3 className="mx-auto mb-8 text-lg font-semibold leading-none tracking-tighter  lg:text-xl">
-    {title} {link.link_type}
+    {title} 
    </h3>
    <p className="mx-auto text-base line-clamp-3 leading-relaxed ">
     {description}
