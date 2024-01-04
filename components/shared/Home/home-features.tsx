@@ -9,7 +9,10 @@ export type FeaturesProps = SliceComponentProps<Content.FeaturesSlice>;
 
 const HomeFeatures = ({ slice }: FeaturesProps): JSX.Element => {
   return (
-    <div >
+    <>
+     {
+      slice.variation === 'default' && (
+        <div >
        
      
        <div className="max-w-xl  space-y-3" id="features" >
@@ -52,6 +55,9 @@ const HomeFeatures = ({ slice }: FeaturesProps): JSX.Element => {
           ))}
         </div>
     </div>
+      )
+     }
+    </>
   )
 }
 
