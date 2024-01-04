@@ -17,7 +17,7 @@ const NavMobile
   return (
     <Sheet >
     <SheetTrigger><LayoutGrid /></SheetTrigger>
-    <SheetContent>
+    <SheetContent className=" overflow-y-scroll">
       <SheetHeader>
        <NavItems/>
       </SheetHeader>

@@ -39,7 +39,7 @@ const NavServices =  () => {
         {services?.map((component) => (
                 
                 <PrismicNextLink key={component.name} field={component.link}>
-                  <SheetClose className='text-md text-left'>
+                  <SheetClose className='text-md py-2 text-left'>
                  
                   {component.name}
                  

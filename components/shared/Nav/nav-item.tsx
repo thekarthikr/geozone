@@ -6,7 +6,7 @@ import { SheetClose } from '../../ui/sheet'
 import Link from 'next/link'
 const NavItems = () => {
   return (
-    <NavigationMenu className='pt-10 text-md overflow-visible font-heading font-bold  text-left'>
+    <NavigationMenu className='pt-10 text-lg overflow-visible font-heading font-bold  text-left'>
     <NavigationMenuList className="space-y-1">
       <NavigationMenuItem>
       
