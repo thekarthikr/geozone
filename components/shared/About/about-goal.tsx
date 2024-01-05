@@ -11,19 +11,19 @@ const AboutGoal = ({ slice }: FeaturesProps): JSX.Element => {
               <div >
               
                 
-                  <section className="mx-auto container">
-                    <div className="px-4 lg:px-0">
-                      <div role="contentinfo" className="flex items-center flex-col px-4">
-                        <p  className="focus:outline-none uppercase text-sm text-center  leading-none">{slice.primary.tag} </p>
+                  <section className="">
+                    <div className="">
+                      <div role="contentinfo" className="flex items-center flex-col ">
+                     
                         <h1  className="focus:outline-none text-4xl lg:text-4xl pt-4 font-extrabold text-center leading-tight  lg:w-7/12 md:w-9/12 xl:w-5/12"> {slice.primary.heading}  </h1>
-                        <p className="md:max-w-3xl mx-auto px-3 text-center">
+                        <p className="md:max-w-3xl mx-auto  text-center">
                           {slice.primary.description}
                         </p>
                       </div>
                     </div>
           
-                     <div  aria-label="group of cards" className="focus:outline-none px-4 py-3   mt-12 rounded-md lg:px-0">
-                      <div className="mx-auto container flex flex-wrap px-2 lg:px-24">
+                     <div  aria-label="group of cards" className="focus:outline-none  py-3   mt-12 rounded-md lg:px-0">
+                      <div className=" block md:flex flex-wrap lg:px-24">
                      
                      {
                       slice.items[0] && (
