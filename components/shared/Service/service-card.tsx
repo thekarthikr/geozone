@@ -66,11 +66,13 @@ return (
         />
       </svg>
     </div>
-    <div className="relative grid gap-5 sm:grid-cols-2 md:grid-cols-3 items-center">
+    <div className="place-items-center grid gap-5 sm:grid-cols-2 md:grid-cols-3 ">
      
      {
       slice.items.map(({title,summary},idx)=>(
-        <Card key={idx} className="backdrop-blur-md bg-white/30 dark:bg-black/20  text-center transition duration-300 transform rounded shadow-2xl hover:scale-105 md:shadow-xl hover:shadow-2xl">
+      <div key={idx}>
+      
+        <Card  className="backdrop-blur-md bg-white/30 dark:bg-black/20  text-center transition duration-300 transform rounded shadow-2xl hover:scale-105 md:shadow-xl hover:shadow-2xl">
        <CardHeader>
         <CardTitle>
           {title}
@@ -83,6 +85,7 @@ return (
        </CardContent>
       
       </Card>
+      </div>
       ))
      }
      

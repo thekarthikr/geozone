@@ -17,7 +17,7 @@ const ServiceEditing = ({ slice }: FeaturesProps): JSX.Element => {
       
     >
      
-     <div className="relative max-w-screen-xl p-4 px-4 mx-auto sm:px-6 lg:px-8 py-26 lg:mt-20">
+     <div className="relative max-w-screen-xl bg-gray-100/40 dark:bg-gray-800/20 p-6 rounded-md px-4 mx-auto sm:px-6 lg:px-8 py-26 ">
       <div className="relative">
         <div className="lg:grid lg:grid-flow-row-dense lg:grid-cols-2 lg:gap-8 lg:items-center">
           <div className="ml-auto lg:col-start-2 lg:max-w-2xl">

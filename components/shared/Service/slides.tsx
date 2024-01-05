@@ -46,8 +46,7 @@ export const Slides = ({ slice }: HeroProps): JSX.Element => {
                     <div className='flex h-full w-full items-center justify-center'>
                       <PrismicNextImage
        field={images}
-      width={400}
-                        height={400}
+    
                         className='block h-full w-full object-cover'
                       />
                     </div>

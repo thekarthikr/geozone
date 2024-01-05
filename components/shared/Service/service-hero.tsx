@@ -39,7 +39,7 @@ const ServiceHero = ({ slice }: HeroProps): JSX.Element => {
              </Button>
             </div>
           </div>
-          <div className="relative px-3 w-[100%] lg:w-1/2">
+          <div className="  w-full lg:w-1/2">
          <Slides slice={slice} index={0} slices={[]} context={undefined} />
         
           </div>
