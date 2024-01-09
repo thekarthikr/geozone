@@ -66,7 +66,7 @@ const Footer = async () => {
 
       <div className="mt-8 py-6 border-t border-gray-900 border-opacity-30 items-center justify-between sm:flex">
         <div className="mt-4 sm:mt-0">
-          &copy; { new Date().getFullYear()  } GeoZone All rights reserved.
+          Copyright &copy; GeoZone All rights reserved.
         </div>
 
            
